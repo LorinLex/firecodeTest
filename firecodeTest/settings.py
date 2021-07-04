@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
     'drf_yasg',
     'debug_toolbar',
 
@@ -89,12 +90,13 @@ WSGI_APPLICATION = 'firecodeTest.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('DB_BACKEND', 'django.db.backends.postgres'),
+        'ENGINE': os.environ.get('DB_BACKEND',
+                                 'django.db.backends.postgresql'),
         'HOST': os.environ.get('DB_HOST', 'localhost'),
         'PORT': os.environ.get('DB_PORT', '5432'),
-        'NAME': os.environ.get('DB_NAME', BASE_DIR / 'db.sqlite3'),
-        'USER': os.environ.get('DB_USER', 'user'),
-        'PASSWORD': os.environ.get('DB_PASS', 'password')
+        'NAME': os.environ.get('DB_NAME', 'firecode_test'),
+        'USER': os.environ.get('DB_USER', 'admin'),
+        'PASSWORD': os.environ.get('DB_PASS', 'admin')
     }
 }
 
