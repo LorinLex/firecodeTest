@@ -1,0 +1,96 @@
+[
+  {
+    "model": "shops.city",
+    "pk": 1,
+    "fields": {
+      "name": "Moscow"
+    }
+  },
+  {
+    "model": "shops.city",
+    "pk": 2,
+    "fields": {
+      "name": "Saint-Petersburg"
+    }
+  },
+  {
+    "model": "shops.street",
+    "pk": 1,
+    "fields": {
+      "name": "Moscow first street",
+      "city": 1
+    }
+  },
+  {
+    "model": "shops.street",
+    "pk": 2,
+    "fields": {
+      "name": "Moscow second street",
+      "city": 1
+    }
+  },
+  {
+    "model": "shops.street",
+    "pk": 3,
+    "fields": {
+      "name": "Saint-Petersburg first street",
+      "city": 2
+    }
+  },
+  {
+    "model": "shops.street",
+    "pk": 4,
+    "fields": {
+      "name": "Saint-Petersburg second street",
+      "city": 2
+    }
+  },
+  {
+    "model": "shops.shop",
+    "pk": 1,
+    "fields": {
+      "name": "First shop",
+      "city": 1,
+      "street": 1,
+      "house": 10,
+      "opening_time": "21:00",
+      "closing_time": "05:00"
+    }
+  },
+  {
+    "model": "shops.shop",
+    "pk": 2,
+    "fields": {
+      "name": "Second shop",
+      "city": 1,
+      "street": 2,
+      "house": 11,
+      "opening_time": "09:00",
+      "closing_time": "18:00"
+    }
+  },
+  {
+    "model": "shops.shop",
+    "pk": 3,
+    "fields": {
+      "name": "Third shop",
+      "city": 1,
+      "street": 1,
+      "house": 1,
+      "opening_time": "12:00",
+      "closing_time": "13:00"
+    }
+  },
+  {
+    "model": "shops.shop",
+    "pk": 4,
+    "fields": {
+      "name": "Fourth shop",
+      "city": 2,
+      "street": 4,
+      "house": 10,
+      "opening_time": "00:00",
+      "closing_time": "23:59"
+    }
+  }
+]
