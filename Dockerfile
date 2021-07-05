@@ -28,6 +28,9 @@ RUN chmod +x wait-for-it.sh
 ENTRYPOINT ["./wait-for-it.sh", "-s" , "-t", "20", "database:5432", "--"]
 
 CMD bash -c "python3 manage.py collectstatic --no-input && \
+python3 manage.py flush --no-input && \
 python3 manage.py makemigrations && \
 python3 manage.py migrate && \
-python3 manage.py runserver"
+python manage.py loaddata fixture && \
+python3 manage.py createsuperuser --no-input --user admin --email admin@example.com && \
+python3 manage.py runserver 0.0.0.0:8000"
