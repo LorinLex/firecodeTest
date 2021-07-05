@@ -3,7 +3,8 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import City, Street, Shop
-from .serializers import CitySerializer, StreetSerializer, ShopSerializer
+from .serializers import CitySerializer, StreetSerializer, \
+    ShopListSerializer, ShopCreateSerializer
 from .filters import ShopFilter
 
 
@@ -13,7 +14,7 @@ class CityViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
 
     @action(methods=['GET'], detail=True)
     def street(self, request, pk):
-        queryset = Street.objects.filter(city_id=pk)
+        queryset = Street.objects.select_related('city').filter(city_id=pk)
         serializer = StreetSerializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -21,7 +22,11 @@ class CityViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
 class ShopViewSet(viewsets.GenericViewSet,
                   mixins.CreateModelMixin,
                   mixins.ListModelMixin):
-    queryset = Shop.objects.select_related('city_id', 'street_id').all()
-    serializer_class = ShopSerializer
+    queryset = Shop.objects.select_related('city', 'street').all()
     filter_backends = (DjangoFilterBackend,)
     filterset_class = ShopFilter
+
+    def get_serializer_class(self):
+        if self.action == 'list':
+            return ShopListSerializer
+        return ShopCreateSerializer
