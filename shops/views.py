@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import City, Street, Shop
 from .serializers import CitySerializer, StreetSerializer, ShopSerializer
+from .filters import ShopFilter
 
 
 class CityViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
@@ -23,4 +24,4 @@ class ShopViewSet(viewsets.GenericViewSet,
     queryset = Shop.objects.prefetch_related('city_id', 'street_id').all()
     serializer_class = ShopSerializer
     filter_backends = (DjangoFilterBackend,)
-    filterset_fields = ('street_id__name', 'city_id__name', 'open',)
+    filterset_class = ShopFilter
