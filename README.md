@@ -1,9 +1,8 @@
 # Тестовое задание от Firecode
 
-## Кто
-Мухитдинов Эмиль
+**Кто:** Мухитдинов Эмиль
 
-# ТЗ python
+## ТЗ python
 
 <details>
   <summary>Спойлер</summary>
@@ -49,5 +48,28 @@
   - Запросы в базу данных через ORM (ORM на выбор).
   
 </details>
+  
+## Описание
+  
+Простой сервер, обрабатывающий HTTP REST запросы. Для просмотра url установлен [swagger](https://drf-yasg.readthedocs.io/en/stable/index.html). Так же, для просмотра запросов к БД установлен [debug-tool-bar](https://django-debug-toolbar.readthedocs.io/en/latest/).
+  
+## Установка
+  
+Для запуска проекта постребуется [Docker](https://docs.docker.com/engine/install/) и [Docker compose](https://docs.docker.com/compose/install/).
+  
+Команды для установки и запуска проекта через Docker compose:
+```bash
+git clone https://github.com/LorinLex/firecodeTest.git
+cd firecodeTest
+docker-compose up
+```
+
+## Данные для входа в панель администратора
+
+Логин: admin
+  
+Пароль: admin
+  
+
   
  
