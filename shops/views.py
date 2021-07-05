@@ -21,7 +21,7 @@ class CityViewSet(viewsets.GenericViewSet, mixins.ListModelMixin):
 class ShopViewSet(viewsets.GenericViewSet,
                   mixins.CreateModelMixin,
                   mixins.ListModelMixin):
-    queryset = Shop.objects.prefetch_related('city_id', 'street_id').all()
+    queryset = Shop.objects.select_related('city_id', 'street_id').all()
     serializer_class = ShopSerializer
     filter_backends = (DjangoFilterBackend,)
     filterset_class = ShopFilter

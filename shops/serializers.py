@@ -12,7 +12,6 @@ class CitySerializer(ModelSerializer):
 class StreetSerializer(ModelSerializer):
     class Meta:
         model = models.Street
-        # fields = '__all__'
         exclude = ['city_id']
 
 
